@@ -10814,6 +10814,10 @@ a.text-dark:focus {
   border-bottom: 2px solid #EDF2FB;
 }
 
+.vehicle-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
 .text-gray-500 {
   color: #a0aec0;
 }

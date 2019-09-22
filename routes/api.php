@@ -15,14 +15,24 @@ use Illuminate\Http\Request;
 Route::group([
 
     'middleware' => 'api',
-    'prefix' => 'auth'
-
 ], function ($router) {
 
-    Route::post('login', 'Api\Auth\AuthController@login');
-    Route::post('register', 'Api\Auth\AuthController@register');
-    Route::post('logout', 'Api\Auth\AuthController@logout');
-    Route::post('refresh', 'Api\Auth\AuthController@refresh');
-    Route::post('me', 'Api\Auth\AuthController@me');
+
+    Route::prefix('auth')->group(function () {
+        Route::post('login', 'Api\Auth\AuthController@login');
+        Route::post('register', 'Api\Auth\AuthController@register');
+        Route::post('logout', 'Api\Auth\AuthController@logout');
+        Route::post('refresh', 'Api\Auth\AuthController@refresh');
+        Route::post('me', 'Api\Auth\AuthController@me');
+    });
+
+    Route::resource('vehicles', 'Api\VehicleController', [
+        'only' => ['index', 'show', 'store', 'update', 'destroy']
+    ]);
+
+    Route::resource('users', 'Api\Auth\UserController', [
+        'only' => ['index', 'show', 'store', 'update', 'destroy']
+    ]);
+
 
 });

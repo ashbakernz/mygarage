@@ -11,17 +11,17 @@
         <ul class="navbar-nav mr-auto">
             @guest
                 <li class="nav-item mx-3">
-                    <a class="nav-link text-lg" href="/">{{ __('Home') }}</a>
+                    <a class="nav-link text-lg" href="{{ route('home') }}">{{ __('Home') }}</a>
                 </li>
             @else
             <li class="nav-item px-2">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('home') }}">
                     <i class="fa fa-home"></i>
                     Home
                 </a>
             </li>
             <li class="nav-item px-2">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('vehicles.index') }}">
                     <i class="fa fa-car-side"></i>
                     Vehicles
                 </a>

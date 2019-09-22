@@ -58,4 +58,14 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+
+    /**
+     * Get the Vehicles for the User.
+     */
+    public function vehicles()
+    {
+        return $this->belongsToMany(\App\Vehicle::class);
+//        return $this->belongsToMany('App\Debt');
+    }
+
 }
